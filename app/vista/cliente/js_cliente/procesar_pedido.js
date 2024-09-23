@@ -70,12 +70,13 @@ botonPedido.addEventListener('click', function() {
 confirmarPedidoBtn.addEventListener('click', function() {
     let nit = document.getElementById('nit').value;
     const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value; 
     let consumidorFinal = false;
 
-    if (nombre) {
+    if (nombre && apellido) {
         // Enviar los datos del pedido al servidor junto con NIT y nombre
         if(!nit){
-            nit='';
+            nit= '';
             consumidorFinal = true;
         }
 
@@ -104,6 +105,13 @@ confirmarPedidoBtn.addEventListener('click', function() {
         nombreInput.value = nombre;
         form.appendChild(nombreInput);
 
+        // Campo oculto para el apellido
+        const apellidoInput = document.createElement('input');
+        apellidoInput.type = 'hidden';
+        apellidoInput.name = 'apellido';
+        apellidoInput.value = apellido;
+        form.appendChild(apellidoInput);
+
         // Campo oculto para el CF
         const cf = document.createElement('input');
         cf.type = 'hidden';
@@ -122,8 +130,8 @@ confirmarPedidoBtn.addEventListener('click', function() {
 document.getElementById('tipo-cliente').addEventListener('change', function() {
     const nitContainer = document.getElementById('nit-container');
     if (this.value === 'cf') {
-        nitContainer.style.display = 'none'; // Ocultar NIT si es consumidor final
+        nitContainer.style.display = 'none';
     } else {
-        nitContainer.style.display = 'block'; // Mostrar NIT si tiene NIT
+        nitContainer.style.display = 'block'; 
     }
 });

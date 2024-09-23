@@ -83,6 +83,10 @@ if (isset($_POST['carrito'])) {
                                     <label for="nombre" class="form-label">Nombre del Cliente</label>
                                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del cliente">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Apellido del Cliente</label>
+                                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido del cliente">
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
