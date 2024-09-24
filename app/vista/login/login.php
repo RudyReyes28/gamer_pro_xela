@@ -1,3 +1,49 @@
+<?php
+require_once '../../modelo/empleado/iniciarSesion.php';
+
+$error = ''; // Variable para guardar el mensaje de error
+
+if (isset($_POST['login'])) {
+    $usuario = $_POST['usuario'];
+    $passwordIngresada = $_POST['contrasenia'];
+
+    $conexion = new IniciarSesion();
+    $empleado = $conexion->buscarEmpleado($usuario); 
+    $conexion->cerrarConexion();
+
+    session_start();
+    if ($empleado && password_verify($passwordIngresada, $empleado['contrasenia'])) {
+        
+        $_SESSION['empleado_id'] = $empleado['id_empleado'];
+        $_SESSION['empleado_nombre'] = $empleado['nombre'];
+        $_SESSION['tipo_empleado'] = $empleado['tipo_empleado'];
+        $_SESSION['numero_caja'] = $empleado['numero_caja'];
+        $_SESSION['id_sucursal'] = $empleado['id_sucursal'];
+        switch ($empleado['tipo_empleado']) {
+            case 'cajero':
+                header("Location: ../cajero/vistaCajero.php");
+                exit;
+            case 'admin':
+                header("Location: ../admin/vistaAdmin.php");
+                exit;
+            case 'bodega':
+                header("Location: ../bodega/vistaBodega.php");
+                exit;
+            case 'inventario':
+                header("Location: ../inventario/vistaInventario.php");
+                exit;
+            default:
+                $error = "Tipo de empleado desconocido.";
+                break;
+        }
+    } else {
+        
+        $error = "Usuario o contraseña incorrectos.";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +73,14 @@
                         <h4 class="mt-1 mb-5 pb-1">GamerProXela</h4>
                       </div>
       
-                      <form method="post" action="../../controlador/login/IniciarSesion.php">
+                      <form method="post" action="#">
                         <p>Ingrese su cuenta de empleado</p>
+
+                        <?php if (!empty($error)): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo $error; ?>
+                            </div>
+                        <?php endif; ?>
       
                         <div data-mdb-input-init class="form-outline mb-4">
                           <input type="text" id="usuario" name="usuario" class="form-control"
