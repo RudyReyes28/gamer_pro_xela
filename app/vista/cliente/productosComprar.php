@@ -30,6 +30,7 @@ if (isset($_POST['codigo_sucursal'])) {
         <!-- Botón para finalizar la compra -->
         <div class="text-left mt-4 my-4">
             <button id="finalizar-compra" class="btn btn-primary">Finalizar compra</button>
+            <a href="../../vista/cliente/home.php" class="btn btn-danger">Regresar</a>
         </div>
 
         <input type="text" id="buscar" placeholder="Buscar producto por nombre" class="form-control my-4">

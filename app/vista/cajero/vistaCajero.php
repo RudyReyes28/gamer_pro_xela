@@ -38,7 +38,7 @@ if (isset($_SESSION['empleado_id'])) {
                             <h5 class="card-title">Registrar/Editar Clientes</h5>
                             <p class="card-text">Registre un nuevo cliente en nuestra tienda, o edite un cliente existente</p>
                             <!-- Formulario para enviar el código de la sucursal -->
-                            <form method="post" action="registrarCliente.php">
+                            <form method="post" action="#">
                                 <button type="submit" class="btn btn-primary">Registrar</button>
                             </form>
                         </div>
