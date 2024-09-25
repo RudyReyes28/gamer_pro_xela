@@ -48,7 +48,7 @@ $encontrarSucursales->cerrarConexion();
         <!-- Opción para solicitar tarjeta de descuento -->
         <div class="text-center my-4">
             <a href="../../vista/cliente/solicitudTarjeta.php" class="btn btn-danger">Solicitar tarjeta de descuento</a>
-            <a href="../../vista/login/login.html" class="btn btn-primary">Salir</a>
+            <a href="../../vista/login/login.php" class="btn btn-primary">Salir</a>
         </div>
     </div>
 

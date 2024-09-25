@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h5 class="card-title">Error en el pedido</h5>
                     <p>Lo sentimos, ocurrió un error al procesar su pedido. Por favor, inténtelo nuevamente.</p>
                 <?php endif; ?>
-                <a href="../../vista/login/login.html" class="btn btn-primary">Salir</a>
+                <a href="../../vista/login/login.php" class="btn btn-primary">Salir</a>
             </div>
         </div>
     </div>

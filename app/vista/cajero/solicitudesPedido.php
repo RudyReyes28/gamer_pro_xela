@@ -43,7 +43,7 @@ if (isset($_SESSION['empleado_id'])) {
                 <?php foreach ($pedidos as $pedido): ?>
                     <tr>
                         <td><?php echo htmlspecialchars($pedido['id_pedido']); ?></td>
-                        <td><?php echo htmlspecialchars($pedido['consumidor_final'] === true? "C/F" : $pedido['nit_cliente']); ?></td>
+                        <td><?php echo htmlspecialchars($pedido['consumidor_final'] === true ? 'C/F' : $pedido['nit_cliente']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['nombre_cliente']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['total']); ?></td>
                         <td><?php echo htmlspecialchars($pedido['fecha_pedido']); ?></td>
@@ -51,6 +51,7 @@ if (isset($_SESSION['empleado_id'])) {
                         <td>
                             <form method="POST" action="realizarVenta.php">
                                 <input type="hidden" name="nit" value="<?= $pedido['nit_cliente']?>">
+                                <input type="hidden" name="consumidor_final" value="<?= $pedido['consumidor_final']?>">
                                 <input type="hidden" name="id_pedido" value="<?= $pedido['id_pedido'] ?>">
                                 <button type="submit" class="btn btn-success">Realizar venta</button>
                             </form>
