@@ -56,6 +56,7 @@ function generarNuevoCarrito() {
         totalCompra += precio * cantidad;
 
     });
+    console.log(totalDescuento);
     totalDescuento = totalCompra-puntosACanjear;
     document.getElementById('total-compra').textContent = totalCompra.toFixed(2);
     document.getElementById('total-descuento').textContent = totalDescuento.toFixed(2);
@@ -69,7 +70,8 @@ function generarNuevoCarrito() {
     if (canjearPuntosBtn) {  // Verificar si el botón existe en el DOM
         canjearPuntosBtn.addEventListener('click', function() {
             const inputPuntos = document.querySelector('.cantidad-puntos');
-            const puntosACanjear = parseInt(inputPuntos.value, 10);
+            puntosACanjear = parseInt(inputPuntos.value, 10);
+            console.log(puntosACanjear);
             canjearPuntos = true;
         });
     }
