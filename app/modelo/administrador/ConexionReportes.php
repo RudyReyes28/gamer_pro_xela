@@ -120,7 +120,7 @@ require_once '../../modelo/conexionesBD/ConexionEmpleado.php';
         public function solicitudesTarjeta(){
             $conexion = $this->conectar->getConexion();
         
-            $query = "SELECT * FROM clientes.solicitud_tarjeta WHERE estado = false";
+            $query = "SELECT * FROM clientes.vista_solicitudes_tarjetas";
         
             // Ejecutar la consulta
              $result = pg_query($conexion, $query);
@@ -135,6 +135,25 @@ require_once '../../modelo/conexionesBD/ConexionEmpleado.php';
             return $clientes;
         }
 
+        //aceptar solicitud
+
+        public function aceptarSolicitud($id_solicitud, $id_tipoTarjeta, $nit){
+            $conexion = $this->conectar->getConexion();
+        
+            $query = "SELECT clientes.aceptar_solicitud_tarjeta($1, $2, $3)";
+        
+             //Ejecutar la consulta
+             $result = pg_query_params($conexion, $query, array($id_solicitud, $id_tipoTarjeta, $nit));
+        
+            // Verificar si la consulta fue exitosa
+            if ($result) {
+                return true;
+            }
+
+            
+
+            return false;
+        }
 
         
 

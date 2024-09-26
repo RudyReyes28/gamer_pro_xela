@@ -39,7 +39,7 @@ if (isset($_SESSION['empleado_id'])) {
                             <h5 class="card-title">Solicitudes de Tarjetas</h5>
                             <p class="card-text">Acepte las solicitudes de las tarjetas de regalo enviada por los clientes</p>
                             <!-- Formulario para enviar el código de la sucursal -->
-                            <a href="solicitudTarjeta.php" class="btn btn-primary">Ver Solicitudes</a>
+                            <a href="solicitudTarjetaAdmin.php" class="btn btn-primary">Ver Solicitudes</a>
                                 
                             
                         </div>
